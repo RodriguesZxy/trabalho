@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: 'Minecraftia', sans-serif;
   color: #fff;
@@ -19,7 +15,6 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: #0b0b0b;
 }
 
 /* ==== IMAGEM DE FUNDO ==== */
@@ -65,7 +60,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* ==== PORTAL ==== */
+/* ==== PORTAL NA ESQUERDA ==== */
 .scene {
   position: fixed;
   top: 50%;
@@ -78,8 +73,8 @@ h1 {
 .portal {
   position: relative;
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 700px;   
+  height: 700px;  
 }
 
 .portal-img {
@@ -88,6 +83,7 @@ h1 {
   object-fit: contain;
 }
 
+/* ==== TEXTO DENTRO DO INVENTÁRIO ==== */
 .portal-text {
   position: absolute;
   top: 65%;
@@ -99,7 +95,7 @@ h1 {
   font-weight: bold;
   line-height: 1.2;
   font-size: clamp(10px, 1.2vw, 14px);
-  color: #fff;
+  color: #ffffff;
   text-align: left;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
@@ -112,12 +108,13 @@ h1 {
   position: fixed;
   bottom: 40px;
   left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  z-index: 999;
+  z-index: 20;
+  pointer-events: none; /* impede interferência com o flex do body */
 }
 
 .nav-btn {
@@ -130,8 +127,7 @@ h1 {
   text-decoration: none;
   box-shadow: 3px 3px 0 #000;
   transition: transform 0.1s ease, background-color 0.2s;
-  user-select: none;
-  display: inline-block;
+  pointer-events: all; /* reativa o clique nos botões */
 }
 
 .nav-btn:hover {
@@ -141,22 +137,4 @@ h1 {
 .nav-btn:active {
   transform: translateY(3px);
   box-shadow: 1px 1px 0 #000;
-}
-
-/* ==== RESPONSIVO ==== */
-@media (max-width: 700px) {
-  .book {
-    width: 90%;
-    height: auto;
-    padding: 40px;
-    background-size: 80%;
-  }
-
-  .nav-container {
-    padding: 0 20px;
-  }
-
-  .nav-btn {
-    padding: 8px 16px;
-  }
 }
