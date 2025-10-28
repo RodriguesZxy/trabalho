@@ -1,110 +1,95 @@
-@import url('https://fonts.cdnfonts.com/css/minecraftia');
-
-* {
+/* ======= TRAVAR ROLAGEM ======= */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
+  overflow: hidden; /* trava a rolagem da página */
+  height: 100%;     /* garante que o body ocupe toda a tela */
   font-family: 'Minecraftia', sans-serif;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
 }
 
-/* ==== IMAGEM DE FUNDO ==== */
-.background-img {
+/* Fundo da página */
+.background {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/download (3).jpg'); /* Pôr do sol */
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  filter: brightness(0.7);
 }
 
-/* ==== LIVRO ==== */
-.book {
-  background: url('https://i.imgur.com/KT5Rr6S.png') no-repeat center;
-  background-size: contain;
-  width: 900px;
-  height: 600px;
+/* Overlay central */
+.overlay {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
-  padding: 80px;
-  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
   z-index: 1;
 }
 
-.book-content {
-  width: 80%;
-  font-size: 18px;
-  color: #f0e6d2;
-  text-shadow: 2px 2px 2px #000;
-  line-height: 1.5;
+/* Placa */
+.book {
+  position: absolute;
+  width: 40%; /* deixa maior que antes */
+  max-width: 500px;
 }
 
-h1 {
+/* Posicionamento das placas */
+.book.left { top: 15%; left: 5%; }
+.book.right { top: 15%; right: 5%; }
+
+/* Placa (imagem de fundo) */
+.paper {
+  width: 100%;
+  padding-top: 100%; /* mantém proporção quadrada */
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+/* Texto sobre a placa */
+.book-content {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  right: 8%;
+  color: #3b2f1c;
+  text-shadow: 1px 1px 0 #d2b48c;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.book-content h1 {
   text-align: center;
   color: #ffd700;
-  text-shadow: 3px 3px 3px #000;
-  font-size: 28px;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 0 #000;
 }
 
-/* ==== PORTAL NA ESQUERDA ==== */
-.scene {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  text-align: center;
+.book-content ul {
+  list-style-type: square;
+  text-align: left;
+  margin: 10px 0 20px 40px;
+}
+
+/* Personagem centralizado e mais para cima */
+.character {
+  position: absolute;
+  top: 25%;          /* ajusta a altura para subir o boneco */
+  left: 50%;         /* centraliza horizontalmente */
+  transform: translateX(-50%); /* mantém centralizado horizontalmente */
+  width: 250px;
   z-index: 2;
 }
 
-.portal {
-  position: relative;
-  display: inline-block;
-  width: 700px;
-  height: 700px;
-}
-
-.portal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* ==== TEXTO DENTRO DO INVENTÁRIO ==== */
-.portal-text {
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-height: 70%;
-  padding: 12px;
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: clamp(10px, 1.2vw, 14px);
-  color: #ffffff;
-  text-align: left;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  overflow-y: auto;
-  box-shadow: inset 0 0 5px #000;
-}
-
-/* ==== BOTÕES FIXOS ESTILO MINECRAFT ==== */
-.nav-btn {
+/* ======= BOTÕES FIXOS NA COR #7a7a7a ======= */
+.back-button, .next-button {
   position: fixed;
   bottom: 30px;
   font-family: 'Minecraftia', sans-serif;
@@ -115,44 +100,31 @@ h1 {
   cursor: pointer;
   font-size: 16px;
   box-shadow: 3px 3px 0 #000;
-  transition: transform 0.15s;
+  transition: transform 0.15s; /* só animação de elevação */
   z-index: 10;
   image-rendering: pixelated;
 }
 
-.nav-btn:hover {
+.back-button:hover, .next-button:hover {
   transform: translateY(-2px);
   box-shadow: 5px 5px 0 #000;
 }
 
-/* Botão Voltar - esquerda */
-.return-btn {
-  left: 30px;
-}
+.back-button { left: 30px; }
+.next-button { right: 30px; }
 
-/* Botão Próximo - direita */
-.next-btn {
-  right: 30px;
-}
-
-/* ====== RESPONSIVO ====== */
+/* Responsivo */
 @media (max-width: 900px) {
   .book {
+    position: relative;
     width: 90%;
-    padding: 40px;
+    margin: 20px auto;
   }
-  .nav-btn {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
+  .character { left: 50%; transform: translateX(-50%); }
 }
 
 @media (max-width: 600px) {
-  .book-content {
-    font-size: 14px;
-  }
-  .nav-btn {
-    padding: 10px 18px;
-    font-size: 12px;
-  }
+  .book-content { font-size: 14px; }
+  .character { width: 180px; }
+  .back-button, .next-button { padding: 12px 20px; font-size: 14px; }
 }
