@@ -13,23 +13,14 @@
 </head>
 <body>
 
-  <!-- Fundo da página diretamente no HTML -->
-  <div style="background-image: url('img/download (3).jpg'); 
-              background-size: cover; 
-              background-position: center; 
-              width: 100%; 
-              height: 100vh; 
-              position: fixed; 
-              top: 0; 
-              left: 0; 
-              z-index: -1;">
-  </div>
+  <!-- Fundo da página -->
+  <div class="background"></div>
 
   <div class="overlay">
 
     <!-- Placa Vantagens -->
     <div class="book left">
-      <div class="paper" style="background-image: url('img/barrel.jpg');"></div>
+      <div class="paper" style="background-image: url('img/Minecraft Barrel Block Pixel Art.jpg');"></div>
       <div class="book-content">
         <h1>💎 Vantagens</h1>
         <ul>
@@ -43,7 +34,7 @@
 
     <!-- Placa Desvantagens -->
     <div class="book right">
-      <div class="paper" style="background-image: url('img/barrel.jpg');"></div>
+      <div class="paper" style="background-image: url('img/Minecraft Barrel Block Pixel Art.jpg');"></div>
       <div class="book-content">
         <h1>🪓 Desvantagens</h1>
         <ul>
@@ -56,13 +47,15 @@
     </div>
 
     <!-- Personagem -->
-    <img src="img/jhonatan.png" alt="Personagem Minecraft" class="character">
+    <img src="img/boneco_do_jhonantan-removebg-preview.png" alt="Personagem Minecraft" class="character">
 
   </div>
 
   <!-- Botões -->
-  <button class="back-button" onclick="window.history.back()">Voltar</button>
-  <button class="next-button" onclick="window.location.href='lucros.html'">Próximo Tópico</button>
+  <div class="buttons">
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+    <button class="next-button" onclick="window.location.href='lucros.html'">Próximo Tópico</button>
+  </div>
 
   <!-- Som de clique -->
   <script>
