@@ -86,7 +86,7 @@ h1 {
 /* ==== TEXTO DENTRO DO INVENTÁRIO - FONTE MAIOR E TEXTO MAIS PARA CIMA ==== */
 .portal-text {
   position: absolute;
-  top: 65%;                   /* texto mais para cima */
+  top: 65%;                   
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
@@ -94,7 +94,7 @@ h1 {
   padding: 12px;
   font-weight: bold;
   line-height: 1.2;
-  font-size: clamp(10px, 1.2vw, 14px); /* fonte maior */
+  font-size: clamp(10px, 1.2vw, 14px);
   color: #ffffff;
   text-align: left;
   background: rgba(0, 0, 0, 0.3);
@@ -122,9 +122,10 @@ h1 {
   background-color: #5e5e5e;
 }
 
-/* Botão Voltar - esquerda */
+/* Botão Voltar - esquerda (subido para aparecer melhor) */
 .return-btn {
   left: 50px;
+  bottom: 100px; /* <-- Subimos o botão para ficar visível */
 }
 
 /* Botão Próximo - direita */
