@@ -107,11 +107,14 @@ h1 {
 .nav-container {
   position: fixed;
   bottom: 40px;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 80px;
   z-index: 20;
+  pointer-events: none; /* impede interferência com o flex do body */
 }
 
 .nav-btn {
@@ -123,9 +126,15 @@ h1 {
   font-family: 'Minecraftia', sans-serif;
   text-decoration: none;
   box-shadow: 3px 3px 0 #000;
-  transition: 0.2s;
+  transition: transform 0.1s ease, background-color 0.2s;
+  pointer-events: all; /* reativa o clique nos botões */
 }
 
 .nav-btn:hover {
   background-color: #5e5e5e;
+}
+
+.nav-btn:active {
+  transform: translateY(3px);
+  box-shadow: 1px 1px 0 #000;
 }
