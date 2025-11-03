@@ -1,0 +1,59 @@
+/* ==== CENTRALIZAÇÃO DA TELA ==== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Minecraftia', sans-serif;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+/* ==== TEXTO CENTRALIZADO ==== */
+.texto-placa {
+  width: 70%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* ==== IMAGEM DE FUNDO ==== */
+.background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ==== BONECO MINECRAFT (EM CIMA DO BOTÃO VOLTAR) ==== */
+.boneco {
+  position: fixed;
+  bottom: 60px; /* fica acima do botão */
+  left: 20px;   /* alinhado com o botão Voltar */
+  width: 150px;
+  pointer-events: none; /* não atrapalha o clique */
+}
+
+/* ==== BOTÕES DE NAVEGAÇÃO ==== */
+.nav-btn {
+  position: fixed;
+  bottom: 20px;
+  padding: 10px 20px;
+  background-color: #7a7a7a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: 'Minecraftia', sans-serif;
+}
+
+.return-btn { left: 20px; }
+.next-btn { right: 20px; }
