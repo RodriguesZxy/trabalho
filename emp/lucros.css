@@ -9,12 +9,9 @@
 body {
   font-family: 'Minecraftia', sans-serif;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   overflow: hidden;
   position: relative;
+  background-color: #000;
 }
 
 /* ==== IMAGEM DE FUNDO ==== */
@@ -28,113 +25,95 @@ body {
   z-index: -1;
 }
 
-/* ==== LIVRO ==== */
-.book {
-  background: url('https://i.imgur.com/KT5Rr6S.png') no-repeat center;
-  background-size: contain;
-  width: 900px;
-  height: 600px;
+/* ============================================================
+   BONECO DO MINECRAFT À ESQUERDA
+   ============================================================ */
+.boneco {
+  position: absolute;
+  bottom: 120px;
+  left: 50px;
+  width: 180px;
+  z-index: 3;
+  image-rendering: pixelated;
+}
+
+/* ============================================================
+   PLACA PENDURADA NO TOPO
+   ============================================================ */
+.scene {
   position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: justify;
-  padding: 80px;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-.book-content {
-  width: 80%;
-  font-size: 18px;
-  color: #f0e6d2;
-  text-shadow: 2px 2px 2px #000;
-  line-height: 1.5;
-}
-
-h1 {
-  text-align: center;
-  color: #ffd700;
-  text-shadow: 3px 3px 3px #000;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-/* ==== PORTAL NA ESQUERDA ==== */
-.scene {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  text-align: center;
   z-index: 2;
 }
 
-.portal {
-  position: relative;
-  display: inline-block;
-  width: 700px;   
-  height: 700px;  
-}
-
-.portal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* ==== TEXTO DENTRO DO INVENTÁRIO ==== */
-.portal-text {
+.placa-container {
   position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-height: 70%;
-  padding: 12px;
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: clamp(10px, 1.2vw, 14px);
-  color: #ffffff;
-  text-align: left;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  overflow-y: auto;
-  box-shadow: inset 0 0 5px #000;
-}
-
-/* ==== BOTÕES DE NAVEGAÇÃO ==== */
-.nav-container {
-  position: fixed;
-  bottom: 40px;
-  left: 0;
-  width: 100%;
+  top: 0px; /* placa bem no topo */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 0 80px;
-  z-index: 20;
-  pointer-events: none; /* impede interferência com o flex do body */
+  width: 400px;
 }
 
+/* CORRENTE DA PLACA */
+.corrente {
+  width: 12px;
+  height: 50px;
+  background-color: #7a7a7a;
+  margin-bottom: -5px;
+}
+
+/* IMAGEM DA PLACA */
+.placa-img {
+  width: 100%;
+  display: block;
+}
+
+/* TEXTO DENTRO DA PLACA */
+.texto-placa {
+  position: absolute;
+  top: 20%; 
+  left: 10%;
+  right: 10%;
+  color: #000;
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+/* ============================================================
+   BOTÕES DE NAVEGAÇÃO
+   ============================================================ */
 .nav-btn {
+  position: absolute;
+  bottom: 30px;
   background-color: #7a7a7a;
   border: 3px solid #3a3a3a;
   color: white;
-  padding: 10px 25px;
+  padding: 10px 20px;
   cursor: pointer;
   font-family: 'Minecraftia', sans-serif;
   text-decoration: none;
   box-shadow: 3px 3px 0 #000;
-  transition: transform 0.1s ease, background-color 0.2s;
-  pointer-events: all; /* reativa o clique nos botões */
+  transition: 0.2s;
+  z-index: 10; /* garante que fique acima de tudo */
 }
 
 .nav-btn:hover {
   background-color: #5e5e5e;
 }
 
-.nav-btn:active {
-  transform: translateY(3px);
-  box-shadow: 1px 1px 0 #000;
+/* Botão Voltar */
+.return-btn {
+  left: 50px;
+}
+
+/* Botão Próximo */
+.next-btn {
+  right: 50px;
 }
